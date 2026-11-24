@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OmHackz Go — Project shortcuts</title>
+<style>
+  :root{color-scheme:dark;font:18px/1.5 system-ui,sans-serif;color:#f2f6ee;background:#101510}
+  body{margin:0;min-height:100svh;display:grid;place-items:center}
+  main{width:min(35rem,86vw);padding:3rem 0}
+  small,label,footer{font: .8rem/1.6 ui-monospace,monospace}
+  small{color:#b1ed73;letter-spacing:.14em}
+  h1{font-size:clamp(3rem,10vw,5rem);letter-spacing:-.07em;margin:.3em 0 0;line-height:1}
+  p,footer{color:#b7c2b5} form{margin:2rem 0}
+  label{display:block;margin-bottom:.4rem}
+  .row{display:flex;gap:.4rem}input,button{font:inherit;border-radius:.4rem;padding:.65rem}
+  input{flex:1;min-width:0;background:#1b241a;border:1px solid #627060;color:inherit}
+  button{border:0;background:#b1ed73;color:#17220c;font-weight:bold;cursor:pointer}
+  a{color:#b1ed73}
+</style>
+<main>
+  <small>OMHACKZ / LINK SERVICE</small>
+  <h1>OmHackz Go</h1>
+  <p>One short link to an OmHackz project or resource. Enter a shortcut name or a six-character code to open it.</p>
+  <form>
+    <label for="shortcut">Shortcut ID</label>
+    <div class="row"><input id="shortcut" placeholder="e.g. home or ABC123" required pattern="[A-Za-z0-9][A-Za-z0-9_\-]{0,63}" maxlength="64" autocapitalize="none" spellcheck="false"><button>Go →</button></div>
+  </form>
+  <footer>Try a shortcut: <a href="/home">go.omhackz.top/home</a></footer>
+</main>
+<script>
+  document.querySelector('form').addEventListener('submit', event => {
+    event.preventDefault();
+    location.assign('/' + encodeURIComponent(document.querySelector('input').value));
+  });
+</script>
+</html>

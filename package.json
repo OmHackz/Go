@@ -1,0 +1,9 @@
+{
+  "name": "omhackz-go",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "link": "node scripts/link.js",
+    "build": "node scripts/build.js"
+  }
+}
